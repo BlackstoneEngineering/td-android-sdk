@@ -28,6 +28,10 @@ jobs:
           fetch-depth: 0
           ref: 'master'
           # path: td-android-sdk
+      - name: install java packages
+        uses: gradle/gradle-build-action@v1
+        with:
+          arguments: dependencies
       - name: build docs
         run: |
           ls
