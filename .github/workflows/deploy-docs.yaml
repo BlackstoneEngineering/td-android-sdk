@@ -5,7 +5,6 @@ on:
     inputs:
       tags:
         description: 'Who triggered this test run?'
-        default: '${{github.actor}}'
   push:
     branches:
       - master
