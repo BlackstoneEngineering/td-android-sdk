@@ -20,7 +20,7 @@ jobs:
       - name: Setup
         continue-on-error: true
         run: |
-          apt update
+          sudo apt update
           apt-get -y install default-jdk
           apt-get -y install android-sdk
           apt-get -y install gradle
