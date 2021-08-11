@@ -60,7 +60,7 @@ jobs:
         id: tidy
         uses: cicirello/javadoc-cleanup@v1
         with:
-          path-to-root: td-android-sdk/build/docs/javadoc
+          path-to-root: ${{ env.GITHUB_WORKSPACE }}/td-android-sdk/build/docs/javadoc
       - name: Commit Docs
         run: |
           sudo mkdir $GITHUB_WORKSPACE/docs
@@ -88,4 +88,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          directory: $GITHUB_WORKSPACE/td-android-sdk
+          directory: ${{ env.GITHUB_WORKSPACE }}/td-android-sdk
