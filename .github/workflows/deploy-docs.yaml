@@ -63,8 +63,8 @@ jobs:
           path-to-root: td-android-sdk/build/docs/javadoc
       - name: Commit Docs
         run: |
-          mkdir $GITHUB_WORKSPACE/docs
-          mv -f td-android-sdk/build/docs/javadoc $GITHUB_WORKSPACE/docs
+          sudo mkdir $GITHUB_WORKSPACE/docs
+          sudo mv -f td-android-sdk/build/docs/javadoc $GITHUB_WORKSPACE/docs
           cd $GITHUB_WORKSPACE/td-android-sdk
           git config user.email "ci-bot@treasure-data.com"
           git config user.name "ci-bot"
@@ -73,8 +73,8 @@ jobs:
           git fetch
           git checkout gh-pages
           git pull
-          rm -rf ./docs
-          mv $GITHUB_WORKSPACE/docs ./docs
+          sudo rm -rf ./docs
+          sudo mv $GITHUB_WORKSPACE/docs ./docs
           git add ./docs/*
           git commit -m "[ci-bot] Updating docs microsite to latest from master"
       - name: deploy docs
