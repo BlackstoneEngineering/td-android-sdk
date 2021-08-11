@@ -34,8 +34,10 @@ jobs:
       #     git clone https://github.com/blackstoneengineering/td-android-sdk td-android-sdk
       #     cd td-android-sdk
       #     git checkout master
-      - name: install gradle packages
-        uses: gradle/gradle-build-action@v1
+      - name: Build docs
+        uses: Raul6469/android-gradle-action@2.0.0
+        with:
+          script: javadocSite
       # - name: gradle build
       #   run: ./gradlew javadocJar
       # - name: build docs
@@ -43,12 +45,12 @@ jobs:
       #     ls
       #     pwd
       #     javadoc -d docs ./src/main/java/com/treasuredata/android/*.java
-      - name: build docs
-        run: |
-          ls
-          pwd
-          cd td-android-sdk
-          ./gradelw javadocSite
+      # - name: build docs
+      #   run: |
+      #     ls
+      #     pwd
+      #     cd td-android-sdk
+      #     ./gradelw javadocSite
       - name: clean docs
         id: tidy
         uses: cicirello/javadoc-cleanup@v1
