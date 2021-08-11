@@ -34,8 +34,6 @@ jobs:
           pwd
           echo "Current Folder:"
           ls
-          echo "td-android-sdk"
-          ls td-android-sdk
           echo "cmdline tools"
           ls /usr/lib/android-sdk/
 
