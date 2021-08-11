@@ -55,7 +55,7 @@ jobs:
         run: |
           export ANDROID_SDK_ROOT='/usr/lib/android-sdk'
           cd $GITHUB_WORKSPACE/td-android-sdk
-          ./gradlew javadocJar
+          sudo ./gradlew javadocJar
       - name: clean docs
         id: tidy
         uses: cicirello/javadoc-cleanup@v1
