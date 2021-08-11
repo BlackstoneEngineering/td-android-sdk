@@ -9,7 +9,7 @@ on:
     branches:
       - master
     paths:
-      - 'src/**'
+      - 'src/main/**'
 
 jobs:
   deploy-docs-microsite:
@@ -19,31 +19,43 @@ jobs:
       - name: Set up the Java JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: git checkout master
+          java-version: '15'
+          distribution: 'zulu'
+      - name: git checkout
         uses: actions/checkout@v2
         with:
           persistent-creadentials: false
           fetch-depth: 0
+          repository: 'blackstoneengineering/td-android-sdk'
           ref: 'master'
-          # path: td-android-sdk
-      - name: install java packages
+          path: td-android-sdk
+      # - name: git checkout - debug
+      #   run: |
+      #     git clone https://github.com/blackstoneengineering/td-android-sdk td-android-sdk
+      #     cd td-android-sdk
+      #     git checkout master
+      - name: install gradle packages
         uses: gradle/gradle-build-action@v1
-        with:
-          arguments: dependencies
+      # - name: gradle build
+      #   run: ./gradlew javadocJar
+      # - name: build docs
+      #   run: |
+      #     ls
+      #     pwd
+      #     javadoc -d docs ./src/main/java/com/treasuredata/android/*.java
       - name: build docs
         run: |
           ls
           pwd
-          javadoc -d docs ./src/main/java/com/treasuredata/android/*.java
+          cd td-android-sdk
+          ./gradelw javadocSite
       - name: clean docs
         id: tidy
         uses: cicirello/javadoc-cleanup@v1
         with:
           path-to-root: docs
-      - name: deploy docs
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
+      # - name: deploy docs
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: gh-pages
