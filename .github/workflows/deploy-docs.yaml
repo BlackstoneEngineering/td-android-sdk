@@ -27,7 +27,7 @@ jobs:
           export ANDROID_SDK_ROOT='/usr/lib/android-sdk'
           sudo apt-get -y install unzip
           wget https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip
-          unzip -o commandlinetools-linux-6609375_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
+          sudo unzip -o commandlinetools-linux-6609375_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
           export PATH=$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH
           yes | sudo /usr/lib/android-sdk/cmdline-tools/tools/bin/sdkmanager --licenses
           echo "[log] "
