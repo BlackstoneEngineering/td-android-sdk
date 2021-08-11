@@ -28,7 +28,7 @@ jobs:
           sudo apt-get -y install unzip
           sudo wget https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip
           sudo unzip -o commandlinetools-linux-6609375_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
-          sudo export PATH=$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH
+          export PATH=$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH
           yes | sudo /usr/lib/android-sdk/cmdline-tools/tools/bin/sdkmanager --licenses
 
       - name: git checkout
