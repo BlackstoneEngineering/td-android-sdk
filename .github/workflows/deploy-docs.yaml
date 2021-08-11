@@ -75,8 +75,14 @@ jobs:
           git pull
           sudo rm -rf ./docs
           sudo mv $GITHUB_WORKSPACE/docs ./docs
+          echo "[log git status]"
+          git status
           git add ./docs/*
           git commit -m "[ci-bot] Updating docs microsite to latest from master"
+          echo "[log pwd]"
+          pwd
+          echo "[log env]"
+          env
       - name: deploy docs
         uses: ad-m/github-push-action@master
         with:
