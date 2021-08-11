@@ -27,8 +27,8 @@ jobs:
           persistent-creadentials: false
           fetch-depth: 0
           repository: 'blackstoneengineering/td-android-sdk'
-          ref: 'master'
-          path: td-android-sdk
+          # ref: 'master'
+          # path: td-android-sdk
       # - name: git checkout - debug
       #   run: |
       #     git clone https://github.com/blackstoneengineering/td-android-sdk td-android-sdk
