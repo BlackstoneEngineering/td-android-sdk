@@ -52,6 +52,7 @@ task javadocJar(type: Jar) {
 task javadocSite(type: Javadoc) {
     failOnError false
     source = sourceSets.main.allJava
+    options.noTimestamp true
     include 'com/treasuredata/android/**'
     exclude 'com/treasuredata/android/billing/internal/**'
     destinationDir = file("${rootDir}/docs")
