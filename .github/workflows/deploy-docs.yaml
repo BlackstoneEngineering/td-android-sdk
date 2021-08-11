@@ -30,6 +30,13 @@ jobs:
           sudo unzip -o commandlinetools-linux-6609375_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
           export PATH=$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH
           yes | sudo /usr/lib/android-sdk/cmdline-tools/tools/bin/sdkmanager --licenses
+          echo "[log] "
+          echo "Current Folder:"
+          ls
+          echo "td-android-sdk"
+          ls td-android-sdk
+          echo "cmdline tools"
+          ls /usr/lib/android-sdk/
 
       - name: git checkout
         uses: actions/checkout@v2
