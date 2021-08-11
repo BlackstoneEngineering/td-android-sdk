@@ -31,6 +31,7 @@ jobs:
           export PATH=$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH
           yes | sudo /usr/lib/android-sdk/cmdline-tools/tools/bin/sdkmanager --licenses
           echo "[log] "
+          pwd
           echo "Current Folder:"
           ls
           echo "td-android-sdk"
@@ -55,6 +56,9 @@ jobs:
         continue-on-error: true
         run: |
           export ANDROID_SDK_ROOT='/usr/lib/android-sdk'
+          echo "[log]"
+          pwd
+          ls
           cd td-android-sdk
           ./gradlew javadocJar
       - name: clean docs
